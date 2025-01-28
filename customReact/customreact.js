@@ -6,14 +6,15 @@ function customRender(reactElement, container){
     // domElement.setAttribute('target', reactElement.props.target);
 
     for (const prop in reactElement.props) {
-        domElement[prop] = reactElement.props[prop];
+        if (prop === 'children') continue;
+        domElement.setAttribute(prop,reactElement.props[prop]);
     }
 
     container.appendChild(domElement);
 }
 
 const reactElement = {
-    type: 'h1',
+    type: 'a',
     props: {
         href: 'https://google.com',
         target: '_blank',
@@ -22,3 +23,5 @@ const reactElement = {
 }
 
 const mainContainer = document.querySelector('#root');
+
+customRender(reactElement, mainContainer);
