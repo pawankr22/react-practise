@@ -8,24 +8,28 @@ function App() {
   // let counter = 15
 
   const addValue = () => {
-    console.log('Button Clicked', counter);
-    counter = counter + 1
-    setCounter(counter)
+    // console.log('Button Clicked', counter);
+    if (counter < 4005) {
+      // counter = counter + 1
+      setCounter(counter+1)
+    }
   }
 
   const removeValue = () => {
-    console.log('Button Clicked', counter);
-    counter = counter - 1
-    setCounter(counter)
+    // console.log('Button Clicked', counter);
+    if (counter > 0) {
+      // counter = counter - 1
+      setCounter(counter-1)
+    }
   }
 
   return (
     <>
-      <h1>A React App</h1>
+      <h1>Counter App</h1>
       <h2>Counter Value: {counter}</h2>
 
-      <button onClick={addValue}>Increment {counter}</button>
-      <button onClick={removeValue}>Decrement {counter}</button>
+      <button onClick={addValue}>Increment</button>
+      <button onClick={removeValue}>Decrement</button>
     </>
   )
 }
